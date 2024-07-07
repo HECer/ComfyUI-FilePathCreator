@@ -1,5 +1,7 @@
 # ComfyUI-FilePathCreator
 
+![Diagram](images/example.png)
+
 ## Overview
 The `ComfyUI-FilePathCreator` is a custom node extension for ComfyUI designed to generate dynamic filenames based on user-defined parameters. This node helps streamline the process of creating organized and timestamped filenames, ideal for saving output files in a structured manner.
 
@@ -38,9 +40,8 @@ The `ComfyUI-FilePathCreator` is a custom node extension for ComfyUI designed to
 ## Example Usage
 After installing the `ComfyUI-FilePathCreator`, you can use it to generate filenames like `output_2023-07-07-143022.txt` and save them in a specified folder. This is particularly useful for batch processing or saving results from automated workflows in a consistent and organized manner.
 
-
-Licensing
+## Licensing
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-Contributions
+## Contributions
 Contributions are welcome! Please feel free to submit a pull request or open an issue on the GitHub repository.
