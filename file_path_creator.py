@@ -19,6 +19,11 @@ class FilePathCreator:
     RETURN_TYPES = ("STRING", "STRING", "STRING")
     RETURN_NAMES = ("Filename", "Folder Path", "Combined Path")
     FUNCTION = "process"
+    
+    @staticmethod
+    def IS_CHANGED():
+        # Always return True to force the node to run on every iteration
+        return True
 
     def process(self, file_prefix, time_format, output_folder, filetype):
         output_folder = output_folder or os.path.abspath("output")
