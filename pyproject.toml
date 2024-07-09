@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-filepathcreator"
 description = "The ComfyUI-FilePathCreator is a custom node extension for ComfyUI designed to generate dynamic filenames based on user-defined parameters. This node helps streamline the process of creating organized and timestamped filenames, ideal for saving output files in a structured manner."
-version = "1.0.0"
+version = "1.0.1"
 license = "LICENSE"
 
 [project.urls]
