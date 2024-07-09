@@ -9,6 +9,6 @@ Repository = "https://github.com/HECer/ComfyUI-FilePathCreator"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "hecer"
 DisplayName = "ComfyUI-FilePathCreator"
-Icon = ""
+Icon = "images/icon.jpeg"
