@@ -20,14 +20,6 @@ class FilePathExtractor:
         return True
 
     def process(self, path):
-        # Check if the path exists at all
-        # Default values for non-existing paths
-        file_name = ""
-        file_extension = ""
-        file_name_with_extension = ""
-        folder_name = ""
-        folder_path = ""
-        
         folder_path = os.path.dirname(path) if os.path.dirname(path) else path  # Use folder part of the path, even if it doesn't exist
         folder_name = os.path.basename(folder_path)
         file_name_with_extension = os.path.basename(path)
