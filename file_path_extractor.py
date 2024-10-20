@@ -5,7 +5,7 @@ class FilePathExtractor:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "test": ("STRING", {"default": ""})
+                "path": ("STRING", {"default": ""})
             }
         }
 
@@ -18,16 +18,16 @@ class FilePathExtractor:
     def IS_CHANGED():
         return True
 
-    def process(self, test):
-        if os.path.isfile(test):
-            file_name = os.path.basename(test)
-            file_extension = os.path.splitext(test)[1][1:]
-            folder_path = os.path.dirname(test)
+    def process(self, path):
+        if os.path.isfile(path):
+            file_name = os.path.basename(path)
+            file_extension = os.path.splitext(path)[1][1:]
+            folder_path = os.path.dirname(path)
             folder_name = os.path.basename(folder_path)
-        elif os.path.isdir(test):
+        elif os.path.isdir(path):
             file_name = ""
             file_extension = ""
-            folder_path = os.path.abspath(test)
+            folder_path = os.path.abspath(path)
             folder_name = os.path.basename(folder_path)
         else:
             file_name = ""

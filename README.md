@@ -53,7 +53,7 @@ The `FilePathExtractor` is a custom node extension for ComfyUI designed to extra
 - **Extract Folder Path**: Provides the absolute path to the folder.
 
 ### Inputs
-1. **test** (required): 
+1. **path** (required): 
    - Type: STRING
    - Default: `""`
    - Description: The path to a file or folder from which to extract information.
