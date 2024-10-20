@@ -5,7 +5,7 @@ class FilePathExtractor:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "path": ("STRING", {"default": ""})
+                "path": ("STRING", {"default": "", "multiline": True, "width": 400})  # Adjust height
             }
         }
 
@@ -16,26 +16,22 @@ class FilePathExtractor:
 
     @staticmethod
     def IS_CHANGED():
+        # Always return True to force the node to run on every iteration
         return True
 
     def process(self, path):
-        if os.path.isfile(path):
-            file_name_with_extension = os.path.basename(path)
-            file_name = os.path.splitext(file_name_with_extension)[0]
-            file_extension = os.path.splitext(path)[1][1:]
-            folder_path = os.path.dirname(path)
-            folder_name = os.path.basename(folder_path)
-        elif os.path.isdir(path):
-            file_name = ""
-            file_extension = ""
-            folder_path = os.path.abspath(path)
-            folder_name = os.path.basename(folder_path)
-            file_name_with_extension = ""
-        else:
-            file_name = ""
-            file_extension = ""
-            folder_path = ""
-            folder_name = ""
-            file_name_with_extension = ""
+        # Check if the path exists at all
+        # Default values for non-existing paths
+        file_name = ""
+        file_extension = ""
+        file_name_with_extension = ""
+        folder_name = ""
+        folder_path = ""
+        
+        folder_path = os.path.dirname(path) if os.path.dirname(path) else path  # Use folder part of the path, even if it doesn't exist
+        folder_name = os.path.basename(folder_path)
+        file_name_with_extension = os.path.basename(path)
+        file_name, file_extension = os.path.splitext(file_name_with_extension)
+        file_extension = file_extension[1:]  # Strip leading dot from extension
 
         return file_name, file_extension, file_name_with_extension, folder_name, folder_path

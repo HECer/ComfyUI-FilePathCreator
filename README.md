@@ -1,6 +1,6 @@
 # ComfyUI-FilePathCreator
 
-![Diagram](images/example.png)
+![Diagram](images/FilePathCreator.png)
 
 ## Overview
 The `ComfyUI-FilePathCreator` is a custom node extension for ComfyUI designed to generate dynamic filenames based on user-defined parameters. This node helps streamline the process of creating organized and timestamped filenames, ideal for saving output files in a structured manner.
@@ -42,6 +42,8 @@ After installing the `ComfyUI-FilePathCreator`, you can use it to generate filen
 
 ## FilePathExtractor
 
+![Diagram](images/FilePathExtractor.png)
+
 ### Overview
 The `FilePathExtractor` is a custom node extension for ComfyUI designed to extract components from a given file or folder path. This node facilitates the decomposition of file paths into understandable and reusable parts, enhancing workflow automation and path management.
 
@@ -67,12 +69,12 @@ The `FilePathExtractor` is a custom node extension for ComfyUI designed to extra
 5. **Folder Path**: The absolute path to the folder.
 
 ### Example Usage
-After installing the `FilePathExtractor`, you can input a file path like `C:/Users/Username/Documents/report.pdf` and obtain:
-- **File Name**: `report`
-- **File Extension**: `pdf`
-- **File Name With Extension**: `report.pdf`
-- **Folder Name**: `Documents`
-- **Folder Path**: `C:/Users/Username/Documents`
+After installing the `FilePathExtractor`, you can input a file path like `C:/Folder/FolderName/Filename.png` and obtain:
+- **File Name**: `Filename`
+- **File Extension**: `png`
+- **File Name With Extension**: `Filename.png`
+- **Folder Name**: `FolderName`
+- **Folder Path**: `C:/Folder/FolderName`
 
 ## Licensing
 This project is licensed under the MIT License. See the LICENSE file for more details.
