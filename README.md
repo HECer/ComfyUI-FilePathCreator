@@ -49,6 +49,7 @@ The `FilePathExtractor` is a custom node extension for ComfyUI designed to extra
 - **Path Input**: Accepts a path to a file or folder.
 - **Extract File Name**: Retrieves the name of the file without the extension.
 - **Extract File Extension**: Identifies the file's extension.
+- **File Name With Extension**: Retrieves the filename along with its extension.
 - **Extract Folder Name**: Gets the name of the folder containing the file.
 - **Extract Folder Path**: Provides the absolute path to the folder.
 
@@ -61,13 +62,15 @@ The `FilePathExtractor` is a custom node extension for ComfyUI designed to extra
 ### Outputs
 1. **File Name**: The name of the file extracted from the path.
 2. **File Extension**: The extension of the file.
-3. **Folder Name**: The name of the folder containing the file.
-4. **Folder Path**: The absolute path to the folder.
+3. **File Name With Extension**: The filename along with its extension.
+4. **Folder Name**: The name of the folder containing the file.
+5. **Folder Path**: The absolute path to the folder.
 
 ### Example Usage
 After installing the `FilePathExtractor`, you can input a file path like `C:/Users/Username/Documents/report.pdf` and obtain:
 - **File Name**: `report`
 - **File Extension**: `pdf`
+- **File Name With Extension**: `report.pdf`
 - **Folder Name**: `Documents`
 - **Folder Path**: `C:/Users/Username/Documents`
 
