@@ -10,8 +10,8 @@ class FilePathExtractor:
         }
 
     CATEGORY = "Custom Nodes"
-    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING")
-    RETURN_NAMES = ("File Name", "File Extension", "Folder Name", "Folder Path")
+    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING")
+    RETURN_NAMES = ("File Name", "File Extension", "File Name With Extension", "Folder Name", "Folder Path")
     FUNCTION = "process"
 
     @staticmethod
@@ -20,7 +20,8 @@ class FilePathExtractor:
 
     def process(self, path):
         if os.path.isfile(path):
-            file_name = os.path.basename(path)
+            file_name_with_extension = os.path.basename(path)
+            file_name = os.path.splitext(file_name_with_extension)[0]
             file_extension = os.path.splitext(path)[1][1:]
             folder_path = os.path.dirname(path)
             folder_name = os.path.basename(folder_path)
@@ -29,10 +30,12 @@ class FilePathExtractor:
             file_extension = ""
             folder_path = os.path.abspath(path)
             folder_name = os.path.basename(folder_path)
+            file_name_with_extension = ""
         else:
             file_name = ""
             file_extension = ""
             folder_path = ""
             folder_name = ""
+            file_name_with_extension = ""
 
-        return file_name, file_extension, folder_name, folder_path
+        return file_name, file_extension, file_name_with_extension, folder_name, folder_path
