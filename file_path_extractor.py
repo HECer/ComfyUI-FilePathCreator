@@ -10,12 +10,12 @@ class FilePathExtractor:
             }
         }
 
-    CATEGORY = "Custom Nodes"
-    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING")
-    RETURN_NAMES = ("File Name", "File Extension", "File Name With Extension", "Folder Name", "Folder Path")
+    CATEGORY = "FilePath Utils"
+    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING", "STRING")
+    RETURN_NAMES = ("File Name", "File Extension", "File Name With Extension", "Folder Name", "Folder Path", "Parent Directory")
     FUNCTION = "process"
     INPUT_IS_LIST = True
-    OUTPUT_IS_LIST = (True, True, True, True, True)
+    OUTPUT_IS_LIST = (True, True, True, True, True, True)
 
     @staticmethod
     def IS_CHANGED():
@@ -52,6 +52,7 @@ class FilePathExtractor:
         file_names_with_extension = []
         folder_names = []
         folder_paths = []
+        parent_directories = []
 
         for path_item in paths:
             folder_part = os.path.dirname(path_item)
@@ -61,11 +62,15 @@ class FilePathExtractor:
             file_name_with_extension = os.path.basename(path_item)
             file_name, file_extension = os.path.splitext(file_name_with_extension)
             file_extension = file_extension[1:] if file_extension.startswith(".") else file_extension
+            
+            # Parent Directory berechnen
+            parent_dir = os.path.dirname(folder_path) if folder_path else ""
 
             file_names.append(file_name)
             file_extensions.append(file_extension)
             file_names_with_extension.append(file_name_with_extension)
             folder_names.append(folder_name)
             folder_paths.append(folder_path)
+            parent_directories.append(parent_dir)
 
-        return file_names, file_extensions, file_names_with_extension, folder_names, folder_paths
+        return file_names, file_extensions, file_names_with_extension, folder_names, folder_paths, parent_directories

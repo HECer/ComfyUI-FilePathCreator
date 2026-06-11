@@ -15,7 +15,7 @@ class FilePathCreator:
             }
         }
 
-    CATEGORY = "Custom Nodes"
+    CATEGORY = "FilePath Utils"
     RETURN_TYPES = ("STRING", "STRING", "STRING")
     RETURN_NAMES = ("Filename", "Folder Path", "Combined Path")
     FUNCTION = "process"
@@ -27,12 +27,17 @@ class FilePathCreator:
 
     def process(self, file_prefix, time_format, output_folder, filetype):
         output_folder = output_folder or os.path.abspath("output")
-        current_time = datetime.now().strftime(time_format)
         
-        if filetype:
-            filename = f"{file_prefix}_{current_time}.{filetype}"
-        else:
+        # Erstelle den Basis-Namen mit oder ohne Zeitstempel
+        if time_format and time_format.strip():
+            current_time = datetime.now().strftime(time_format)
             filename = f"{file_prefix}_{current_time}"
+        else:
+            filename = file_prefix
+        
+        # Füge Extension hinzu wenn vorhanden
+        if filetype:
+            filename = f"{filename}.{filetype}"
             
         combined_path = os.path.join(output_folder, filename)
         return filename, output_folder, combined_path
